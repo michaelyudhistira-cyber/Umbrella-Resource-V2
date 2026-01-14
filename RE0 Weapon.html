@@ -16,12 +16,12 @@
   }
 
   [data-theme="dark"] {
-    --bg: #0e0e0e;
-    --header-bg: #181818;
+    --bg: #323232;
+    --header-bg: #3E3E3E;
     --text: #f5f5f5;
-    --text-muted: #aaa;
-    --accent: #bfae70;
-    --accent-hover: #f0d98a;
+    --text-muted: #929292;
+    --accent: #6F6F6F;
+    --accent-hover: #9F9F9F;
   }
 
   /* 🌍 Global */
@@ -88,15 +88,14 @@
   }
 
   /* 🌙 Tombol Dark Mode */
-  .theme-toggle {
-    background: transparent;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 6px 10px;
-    font-size: 18px;
-    transition: 0.3s;
-  }
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+}
   .theme-toggle:hover {
     background: var(--accent);
     transform: scale(1.1);
@@ -132,10 +131,54 @@
   }
   .dropdown-panel a:hover { background: var(--accent); }
 
+  /* 🖼️ Banner */
+  .hero {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 6px;
+  }
+  .hero img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+
+  /* 📸 Konten Gambar */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px 16px;
+    justify-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 18px;
+    transition: transform 0.25s, background 0.25s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    background: var(--accent);
+  }
+
   /* 📱 Responsive Navbar */
   .mobile-toggle { display: none; }
   .hamburger {
     display: none;
+
     width: 38px;
     height: 38px;
     border-radius: 8px;
@@ -147,20 +190,21 @@
     font-size: 20px;
   }
 
-  @media (max-width: 880px) {
-    nav.mainnav { display: none; }
-    .hamburger { display: flex; }
-    #nav-toggle:checked ~ .mobile-menu { display: block; }
+@media (max-width: 880px) {
+  .mobile-menu.site-wrap {
+    max-width: 100%;
+    padding: 0;
+  }
 
-    .mobile-menu {
-      display: none;
-      background: var(--header-bg);
-      padding: 12px;
-      border-radius: 8px;
-      margin: 10px auto;
-      max-width: 90%;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
+.hamburger {
+  display: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.2);
+  cursor: pointer;
+}
+}
     .mobile-menu a {
       display: block;
       padding: 10px;
@@ -168,8 +212,15 @@
       color: var(--text);
       border-radius: 6px;
     }
-    .mobile-menu a + a { margin-top: 6px; }
+	
+@media (max-width: 880px) {
+  nav.mainnav { display: none; }
+  .hamburger { display: block; }
+
+  #nav-toggle:checked + .mobile-menu {
+    display: block;
   }
+}
 
   /* ====== MAIN CONTENT ====== */
   main {
@@ -241,15 +292,6 @@
 			  <a href="re1r.html">Resident Evil 1</a>
 			  <a href="re0.html">Resident Evil 0</a>
               <a href="re4.html">Resident Evil 4</a>
-              <a href="re5.html">Resident Evil 5</a>
-            </div>
-            <div class="col">
-              <a href="re6.html">Resident Evil 6</a>
-              <a href="re7.html">Resident Evil 7</a>
-			  <a href="re2r.html">Resident Evil 2 Remake</a>
-		      <a href="re3r.html">Resident Evil 3 Remake</a>
-		      <a href="re8.html">Resident Evil Village</a>
-			  <a href="re4r.html">Resident Evil 4 Remake</a>
             </div>
         </div>
       </div>
@@ -260,13 +302,7 @@
         <div class="dropdown-panel">
            <div class="col">
             <a href="RE-Survivor.html">Resident Evil Survivor</a>
-            <a href="RE-Outbreak.html">Resident Evil Outbreak</a>
-			<a href="RE-Outbreak2.html">Resident Evil Outbreak #2</a>
-            <a href="RE-Dead-Aim.html">Resident Evil Dead Aim</a>
-            <a href="RE-Revelations.html">Resident Evil Revelations</a>
-			<a href="RE-Revelations2.html">Resident Evil Revelations 2</a>
-            <a href="RE-Umbrella Chronicles.html">Resident Evil Umbrella Chronicles</a>
-			<a href="RE-Darkside Chronicles.html">Resident Evil Darkside Chronicles</a>
+            <a href="RE-Code-Veronica.html">Resident Evil Code Veronica</a>
           </div>
         </div>
       </div>
@@ -280,6 +316,7 @@
     <label for="nav-toggle" class="hamburger">&#9776;</label>
   </div>
 
+	
   <!-- Mobile menu -->
   <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
   <div class="mobile-menu site-wrap">
