@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mainline Titles - Umbrella Resource</title>
+<style>
+ /* Light mode (default) */
+ :root {
+    --bg: #fdf5ce;
+    --header-bg: #faf3c0;
+    --text: #111;
+    --text-muted: #555;
+    --accent: #d6c68a;
+    --accent-hover: #bfae70;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0e0e0e;
+    --header-bg: #181818;
+    --text: #f5f5f5;
+    --text-muted: #aaa;
+    --accent: #bfae70;
+    --accent-hover: #f0d98a;
+  }
+
+  /* 🌍 Global */
+  body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .site-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 🔝 Header & Navbar */
+  header.topbar {
+    background: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .topbar .site-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .site-title { font-weight: 700; font-size: 18px; }
+  .site-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  nav.mainnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  nav a.button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background-color .25s, transform .2s;
+  }
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* 🌙 Tombol Dark Mode */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  /* ⬇️ Dropdown */
+  .dropdown { position: relative; }
+  .drop-toggle { cursor: pointer; }
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: var(--header-bg);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: none;
+    z-index: 50;
+  }
+  .dropdown:hover .dropdown-panel { display: block; }
+  .dropdown-panel .col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown-panel a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .dropdown-panel a:hover { background: var(--accent); }
+
+  /* 📱 Responsive Navbar */
+  .mobile-toggle { display: none; }
+  .hamburger {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 20px;
+  }
+
+  @media (max-width: 880px) {
+    nav.mainnav { display: none; }
+    .hamburger { display: flex; }
+    #nav-toggle:checked ~ .mobile-menu { display: block; }
+
+    .mobile-menu {
+      display: none;
+      background: var(--header-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px auto;
+      max-width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 6px;
+    }
+    .mobile-menu a + a { margin-top: 6px; }
+  }
+
+  /* ====== MAIN CONTENT ====== */
+  main {
+    max-width:1200px;
+    margin:40px auto;
+    background-color:var(--accent);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    text-align:center;
+    margin-bottom:30px;
+  }
+
+  /* === TABLE === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--header-bg);
+    color: var(--text);
+  }
+
+  th, td {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 16px;
+    text-align: center;
+    height: 60px;
+    transition: background 0.3s;
+  }
+
+  td:hover {
+    background: var(--accent-hover);
+  }
+
+  th {
+    background: var(--accent);
+    font-weight: 700;
+  }
+
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="site-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Image/1. Universal/Umbrella_Corporation_logo.svg.png" alt="Umbrella Logo">
+      <div>
+        <div class="site-title">Umbrella Resource</div>
+        <div class="site-sub">A dedicated Resident Evil resource</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mainnav">
+      <a class="button" href="index.html">Home</a>
+
+      <!-- Mainline dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+              <a href="re1.html">Resident Evil (1993)</a>
+              <a href="re2.html">Resident Evil 2</a>
+              <a href="re3.html">Resident Evil 3</a>
+			  <a href="re1r.html">Resident Evil 1</a>
+			  <a href="re0.html">Resident Evil 0</a>
+              <a href="re4.html">Resident Evil 4</a>
+              <a href="re5.html">Resident Evil 5</a>
+            </div>
+            <div class="col">
+              <a href="re6.html">Resident Evil 6</a>
+              <a href="re7.html">Resident Evil 7</a>
+			  <a href="re2r.html">Resident Evil 2 Remake</a>
+		      <a href="re3r.html">Resident Evil 3 Remake</a>
+		      <a href="re8.html">Resident Evil Village</a>
+			  <a href="re4r.html">Resident Evil 4 Remake</a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spin-Off dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+            <a href="RE-Survivor.html">Resident Evil Survivor</a>
+            <a href="RE-Outbreak.html">Resident Evil Outbreak</a>
+			<a href="RE-Outbreak2.html">Resident Evil Outbreak #2</a>
+            <a href="RE-Dead-Aim.html">Resident Evil Dead Aim</a>
+            <a href="RE-Revelations.html">Resident Evil Revelations</a>
+			<a href="RE-Revelations2.html">Resident Evil Revelations 2</a>
+            <a href="RE-Umbrella Chronicles.html">Resident Evil Umbrella Chronicles</a>
+			<a href="RE-Darkside Chronicles.html">Resident Evil Darkside Chronicles</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="Release Timeline.html">Release-Timeline</a>
+	  <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+      <a class="button" href="Gallery.html">Gallery</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </div>
+
+  <!-- Mobile menu -->
+  <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
+  <div class="mobile-menu site-wrap">
+   <a href="index.html">Home</a>
+    <a href="Mainline.html">Mainline</a>
+    <a href="Spin-Offs.html">Spin-Offs</a>
+    <a href="Release Timeline.html">Release-Timeline</a>
+	<a href="In-Game Timeline.html">Game-Timeline</a>
+    <a href="Gallery.html">Gallery</a>
+  </div>
+</header>
+
+<main>
+  <h1>Weapons</h1>
+ <table>
+    <thead>
+      <tr>
+        <th>Weapon</th>
+        <th>Description</th>
+        <th>Ammo</th>
+        <th>Background</th>
+        <th>Reference</th>
+        <th>Airsoft Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/Knife/knife.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Knife</p></a></div></td><td>A knife designed for self-defense.</td><td>None</td><td>It's a military standard combat knife.</td><td>USMC Mark 2 Combat Knife (KA-BAR)</td><td>KA-BAR blunt replica</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/Handgun (Rebecca)/handgun-rebeccas.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun (Billy)</p>
+			</a></div></td><td>The standard handgun for S.T.A.R.S. members. It uses Handgun Ammo.</td><td>Handgun Ammo</td><td>It's a specialized handgun for S.T.A.R.S. unit, named the Samurai Edge.</td><td>Beretta 92FS</td><td>Tokyo Marui Samurai Edge</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/Handgun (Billy)/handgun-billys.png" alt="Resident Evil 1" width="100" height="100">
+      <p>Handgun (Billy)</p>
+			</a></div></td><td>A standard army-issue handgun. It uses 9mm parabellum rounds.</td><td>Handgun Ammo</td><td>A standard army-issue handgun. It uses 9mm parabellum rounds.</td><td>Combination of Colt 1911, Beretta open barrel pistols, and Browning Hi-power</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/custom-handgun-rebeccas/custom-handgun-rebeccas.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Custom Handgun (Rebecca)</p>
+			</a></div></td><td>A custom handgun that's been fitted with a scope for greater accuracy.</td><td>Handgun Ammo</td><td>A modified handgun allows greater accuracy when firing. The small modifications to Rebecca's standard handgun means it's a bit more powerful.</td><td>Beretta 92FS</td><td>Tokyo Marui Samurai Edge</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/custom-handgun-billys/custom-handgun-billys.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Custom Handgun (Billy)</p>
+			</a></div></td><td>A custom handgun that's been fitted with a scope for greater accuracy.</td><td>Handgun Ammo</td><td>A modified handgun allows greater accuracy when firing. The small modifications to Billy's standard handgun means it's a bit more powerful.</td><td>Combination of Colt 1911, Beretta open barrel pistols, and Browning Hi-power</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/molotov-cocktail/molotov-cocktail.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Molotov</p>
+			</a></div></td><td>A primitive weapon capable of massive fire damage.</td><td>None</td><td>A handmade gasoline firebomb, named after Vyacheslav Molotov during WWII.</td><td>It's a bottle with cloth on it</td><td>NO</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/hunting-gun/hunting-gun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Hunting Gun</p>
+			</a></div></td><td>A shotgun used for hunting. Can only be loaded with 2 shells at a time.</td><td>Shotgun Ammo</td><td>A double-barrelled shotgun used for hunting. Uses shotgun ammo, takes up two inventory slots.</td><td>Hartmann & Weiss over/under shotgun</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/shotgun/shotgun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Shotgun</p>
+			</a></div></td><td>A conventional pump-action shotgun.</td><td>Shotgun Ammo</td><td>A classic pump-action shotgun using shotgun ammo. Takes two inventory slots.</td><td>Mix of Remington 870 Police Magnum and Winchester Model 1912 Riot Gun</td><td>S&amp;T M870</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/grenade-launcher/grenade-launcher.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Grenade Launcher</p>
+			</a></div></td><td>A large grenade launcher with a revolver-style chamber.</td><td>Grenades, Acid, Napalm</td><td>A powerful launcher capable of holding multiple grenades. Takes two slots.</td><td>Amalgamation of SPAS-12, Milkor MGL, Defense Tech Launcher, and ARWEN 37</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/magnum/magnum.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Magnum</p>
+			</a></div></td><td>A large handgun capable of firing powerful Magnum rounds.</td><td>Magnum Ammo</td><td>Extremely powerful, kills most enemies in one shot. Best for late-game bosses.</td><td>AMT Hardballer Longslide</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/magnum-revolver/magnum-revolver.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Magnum Revolver</p>
+			</a></div></td><td>A revolver containing enhanced parts and tremendous firepower.</td><td>Magnum Ammo</td><td>A modified .44 Magnum with increased power, customized by Barry Burton.</td><td>Combination of Colt 1911, Beretta, and Browning Hi-power</td><td>Cybergun Colt Licensed Python .357 Magnum Airsoft Revolver by King Arms</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/rocket-launcher/rocket-launcher.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Rocket Launcher</p>
+			</a></div></td><td>A devastatingly powerful piece of weaponry that fires rockets.</td><td>Unlimited Rockets</td><td>Devastating rocket weapon capable of killing most enemies instantly.</td><td>Fictional design (Lewis cooler barrel resemblance)</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/sub-machinegun/sub-machinegun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Sub-Machinegun</p>
+			</a></div></td><td>A small sub-machine gun using its own ammo type.</td><td>Machinegun Ammo</td><td>A compact SMG using custom ammo, capable of killing large enemies.</td><td>Oddly shaped MP5</td><td>Elite Force H&amp;K Competition Kit MP5 A4/A5 SMG AEG Airsoft Gun by Umarex</td></tr>
+    </tbody>
+  </table>
+
+ <h1>Weapon Parts</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Special Item</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+		
+      <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/handgun-parts/handgun-parts.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun-Parts</p>
+			</a></div></td>
+        <td>A set of various parts consisting of a scope and a scope mount. Equipping these on a handgun will greatly increase the gun's firing precision.</td>
+		  
+		  <td>
+            <p>Training Room - Facility Basement B3</p>
+	    <a class="game-card" >        </a></td>
+		  <td>Parts for upgrading both Rebecca's and Billy's handgun.</td>
+	  
+	  </tr>
+	
+		
+	
+    </tbody>
+  </table>
+	
+	 <h1>Ammunition</h1>
+  <table>
+    <thead>
+      <tr>
+        <th width="11%">Ammo</th>
+        <th width="13%">Description</th>
+        <th width="59%">Location</th>
+        <th width="17%">Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+		
+      <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/handgun-ammo.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun Ammo</p>
+			</a></div></td>
+        <td><p>Holds 9x19 parabellum rounds for use with handguns.</p>
+        <p>Total of ammo in each difficulty are different</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These bullets can be used with the following weapons:<br>
+		    <ul>
+		      <li><a>Rebecca's Handgun</a><br>
+	          </li>
+		      <li><a>Billy's Handgun</a><br>
+	          </li>
+		      <li><a>Rebecca's Custom Handgun</a><br>
+	          </li>
+		      <li><a>Billy's Custom Handgun</a></li>
+          </ul></td>
+	  
+	  </tr>
+	 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/shotgun-ammo.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Shotgun Ammo</p>
+			</a></div></td>
+        <td><p>12 gauge shotgun shells.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>An extra box of shells for use with the following weapons:<br>
+		    <ul>
+		      <li><a>Hunting Gun</a><br>
+	          </li>
+		      <li><a>Shotgun</a></li>
+          </ul></td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/grenades.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with conventional explosives.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the <a><strong>Grenade Launcher</strong></a><strong>.</strong> They are powerful, but the damage isn't as concentrated as the other types of rounds. They are useful against Zombies and Plague Crawlers.</td>
+	  
+	  </tr>
+	 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/acid-grenades.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Acid Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with highly-concentrated sulfuric acid.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These shells, used with the <a>Grenade Launcher</a>, are most effective against the deadlier enemies of the game.</td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/napalm-grenades.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Napalm Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with a highly-flammable liquid.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the <a><strong>Grenade Launcher</strong></a>. They are effective against many enemies of the game, but should be reserved for the enemies sensitive to fire.</td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/magnum-ammo.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Magnum Ammo</p>
+			</a></div></td>
+        <td><p>These Magnum rounds boast several times the stopping power of ordinary handgun bullets.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the following weapons:<br>
+		    <ul>
+		      <li><a>Magnum</a><br>
+	          </li>
+		      <li><a>Magnum Revolver</a></li>
+           </ul></td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE0/Weapon/machinegun-ammo.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Machinegun Ammo</p>
+			</a></div></td>
+        <td><p>A magazine containing sub-machinegun ammunition.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These clips will only appear in the main game if you have played the Leech Hunter mini-game and achieved at least an E Rank. However, they're only usable once you have acquired the <a><strong>Sub-Machinegun</strong></a> which is unlocked after completing the main game in under 5 hours. Once you have this weapon, these clips can be combined with it to restore its ammunition counter.</td>
+	  
+	  </tr>
+    </tbody>
+  </table>
+</main>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+  if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+    toggle.textContent = '☀️';
+  }
+  toggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '🌙';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  });
+</script>
+</body>
+</html>
+

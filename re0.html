@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Resident Evil 0 - Umbrella Resource</title>
+<style>
+  :root {
+    --bg: #fdf5ce;
+    --header-bg: #faf3c0;
+    --text: #111;
+    --text-muted: #555;
+    --accent: #d6c68a;
+    --accent-hover: #bfae70;
+    --card-bg: #f7d68c;
+    --card-border: #d0b96e;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0e0e0e;
+    --header-bg: #181818;
+    --text: #f5f5f5;
+    --text-muted: #aaa;
+    --accent: #bfae70;
+    --accent-hover: #f0d98a;
+    --card-bg: #2a2a2a;
+    --card-border: #444;
+  }
+
+  /* 🌍 Global */
+  body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+	
+  .site-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+	
+  /* 🔝 Header & Navbar */
+  header.topbar {
+    background: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .topbar .site-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+   .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .site-title { font-weight: 700; font-size: 18px; }
+  .site-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+	
+   nav.mainnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+	
+  nav a.button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background-color .25s, transform .2s;
+  }
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* 🌙 Tombol Dark Mode */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  /* ⬇️ Dropdown */
+  .dropdown { position: relative; }
+  .drop-toggle { cursor: pointer; }
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: var(--header-bg);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: none;
+    z-index: 50;
+  }
+  .dropdown:hover .dropdown-panel { display: block; }
+  .dropdown-panel .col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown-panel a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .dropdown-panel a:hover { background: var(--accent); }
+
+  /* 📱 Responsive Navbar */
+  .mobile-toggle { display: none; }
+  .hamburger {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 20px;
+  }
+
+  @media (max-width: 880px) {
+    nav.mainnav { display: none; }
+    .hamburger { display: flex; }
+    #nav-toggle:checked ~ .mobile-menu { display: block; }
+
+    .mobile-menu {
+      display: none;
+      background: var(--header-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px auto;
+      max-width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 6px;
+    }
+    .mobile-menu a + a { margin-top: 6px; }
+  }
+  /* ======= Layout konten ======= */
+  main {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: var(--accent);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .game-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .cover-art img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .game-info div {
+    background: var(--accent-hover);
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .game-summary {
+    background: var(--accent-hover);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: justify;
+  }
+
+ /* Item grid */
+  .items-section {
+    background: var(--accent-hover);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  /* 🔹 Kartu Item (klik + efek hover) */
+  .item-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s ease;
+    display: block;
+  }
+
+  .item-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-hover);
+    background: var(--accent);
+  }
+
+  .item-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #ccc;
+  }
+
+  .item-card p {
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  /* 🔸 Warna kustom per item (optional) */
+  .firstaid:hover { background: #c5e1a5; border-color: #8bc34a; }
+  .handgun:hover { background: #cfd8dc; border-color: #90a4ae; }
+  .herb:hover { background: #a5d6a7; border-color: #66bb6a; }
+  .shotgun:hover { background: #d7ccc8; border-color: #8d6e63; }
+
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="site-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Image/1. Universal/Umbrella_Corporation_logo.svg.png" alt="Umbrella Logo">
+      <div>
+        <div class="site-title">Umbrella Resource</div>
+        <div class="site-sub">A dedicated Resident Evil resource</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mainnav">
+      <a class="button" href="index.html">Home</a>
+
+      <!-- Mainline dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+              <a href="re1.html">Resident Evil (1993)</a>
+              <a href="re2.html">Resident Evil 2</a>
+              <a href="re3.html">Resident Evil 3</a>
+			  <a href="re1r.html">Resident Evil 1</a>
+			  <a href="re0.html">Resident Evil 0</a>
+              <a href="re4.html">Resident Evil 4</a>
+              <a href="re5.html">Resident Evil 5</a>
+            </div>
+            <div class="col">
+              <a href="re6.html">Resident Evil 6</a>
+              <a href="re7.html">Resident Evil 7</a>
+			  <a href="re2r.html">Resident Evil 2 Remake</a>
+		      <a href="re3r.html">Resident Evil 3 Remake</a>
+		      <a href="re8.html">Resident Evil Village</a>
+			  <a href="re4r.html">Resident Evil 4 Remake</a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spin-Off dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+            <a href="RE-Survivor.html">Resident Evil Survivor</a>
+            <a href="RE-Outbreak.html">Resident Evil Outbreak</a>
+			<a href="RE-Outbreak2.html">Resident Evil Outbreak #2</a>
+            <a href="RE-Dead-Aim.html">Resident Evil Dead Aim</a>
+            <a href="RE-Revelations.html">Resident Evil Revelations</a>
+			<a href="RE-Revelations2.html">Resident Evil Revelations 2</a>
+            <a href="RE-Umbrella Chronicles.html">Resident Evil Umbrella Chronicles</a>
+			<a href="RE-Darkside Chronicles.html">Resident Evil Darkside Chronicles</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="Release Timeline.html">Release-Timeline</a>
+	  <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+      <a class="button" href="Gallery.html">Gallery</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </div>
+
+  <!-- Mobile menu -->
+  <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
+  <div class="mobile-menu site-wrap">
+   <a href="index.html">Home</a>
+    <a href="Mainline.html">Mainline</a>
+    <a href="Spin-Offs.html">Spin-Offs</a>
+    <a href="Release Timeline.html">Release-Timeline</a>
+	<a href="In-Game Timeline.html">Game-Timeline</a>
+    <a href="Gallery.html">Gallery</a>
+  </div>
+</header>
+<main>
+  <div class="game-layout">
+    <div class="cover-art">
+      <img src="Image/Mainline/RE0.jpg" alt="Resident Evil 1 Cover">
+    </div>
+    <div class="game-info">
+      <div>Resident Evil 0</div>
+      <div>Release Date: November 12, 2002</div>
+      <div>Platform: Nintendo GameCube, Nintendo Wii, Sony PlayStation 3, Sony PlayStation 4, Microsoft Xbox 360, Microsoft Xbox One, PC, Nintendo Switch</div>
+    </div>
+    <div class="game-summary">
+      <strong>Kisah Resident Evil 0 terjadi sebelum peristiwa Resident Evil 1. Ceritanya dimulai pada 23 Juli 1998, ketika Tim Bravo S.T.A.R.S. dikirim ke Pegunungan Arklay untuk menyelidiki serangkaian pembunuhan aneh.
+
+Dalam perjalanan, helikopter mereka mengalami kerusakan dan mendarat darurat. Rebecca Chambers, anggota termuda tim, menemukan kereta Ecliptic Express yang berhenti misterius di tengah hutan. Di dalamnya, semua penumpang telah berubah menjadi zombie akibat infeksi virus.
+
+Rebecca kemudian bertemu dengan Billy Coen, seorang narapidana mantan marinir yang dijatuhi hukuman mati. Meskipun awalnya tidak mempercayainya, mereka akhirnya bekerja sama untuk bertahan hidup dan mencari tahu penyebab wabah tersebut.
+
+Mereka menemukan bahwa biang keladinya adalah James Marcus, salah satu pendiri Umbrella Corporation, yang menciptakan T-Virus dengan menggabungkan Progenitor Virus dan DNA lintah. Marcus dibunuh oleh Umbrella bertahun-tahun sebelumnya, tetapi virus lintah membuatnya hidup kembali dan menuntut balas dendam.
+
+Rebecca dan Billy berhasil menghancurkan laboratorium bawah tanah milik Umbrella, membunuh bentuk mutasi Marcus, dan melarikan diri sebelum tempat itu meledak. Rebecca kemudian menuju ke Spencer Mansion, yang menjadi lokasi utama Resident Evil 1.</strong>
+    </div>
+  </div>
+
+  <div class="items-section">
+    <h2>Items</h2>
+    <div class="items-grid">
+      <a href="RE0 Weapon.html" class="item-card firstaid">
+        <p>Weapon</p>
+      </a>
+		
+      <a href="RE0 KeyItem.html" class="item-card handgun">
+        <p>Key Item</p>
+      </a>
+		
+      <a href="RE0 Recovery.html" class="item-card herb">
+        <p>Recovery</p>
+      </a>
+		
+    </div>
+  </div>
+</main>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+  if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+    toggle.textContent = '☀️';
+  }
+  toggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '🌙';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  });
+</script>
+</body>
+</html>
+

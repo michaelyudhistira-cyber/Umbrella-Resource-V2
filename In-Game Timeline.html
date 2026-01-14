@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Timeline - Umbrella Resource</title>
+<style>
+ /* Light mode (default) */
+ :root {
+    --bg: #fdf5ce;
+    --header-bg: #faf3c0;
+    --text: #111;
+    --text-muted: #555;
+    --accent: #d6c68a;
+    --accent-hover: #bfae70;
+  }
+
+  [data-theme="dark"] {
+    --bg: #323232;
+    --header-bg: #3E3E3E;
+    --text: #f5f5f5;
+    --text-muted: #929292;
+    --accent: #6F6F6F;
+    --accent-hover: #211683;
+  }
+
+  /* 🌍 Global */
+  body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .site-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 🔝 Header & Navbar */
+  header.topbar {
+    background: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .topbar .site-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .site-title { font-weight: 700; font-size: 18px; }
+  .site-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  nav.mainnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  nav a.button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background-color .25s, transform .2s;
+  }
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* 🌙 Tombol Dark Mode */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+  .theme-toggle:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  /* ⬇️ Dropdown */
+  .dropdown { position: relative; }
+  .drop-toggle { cursor: pointer; }
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: var(--header-bg);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: none;
+    z-index: 50;
+  }
+  .dropdown:hover .dropdown-panel { display: block; }
+  .dropdown-panel .col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown-panel a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .dropdown-panel a:hover { background: var(--accent); }
+
+  /* 🖼️ Banner */
+  .hero {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 6px;
+  }
+  .hero img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+
+  /* 📸 Konten Gambar */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px 16px;
+    justify-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 18px;
+    transition: transform 0.25s, background 0.25s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    background: var(--accent);
+  }
+	
+ /* 📱 Responsive Navbar */
+  .mobile-toggle { display: none; }
+  .hamburger {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 20px;
+  }
+
+@media (max-width: 880px) {
+  .mobile-menu.site-wrap {
+    max-width: 100%;
+    padding: 0;
+  }
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,.2);
+  cursor: pointer;
+}
+}
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 6px;
+    }
+	
+@media (max-width: 880px) {
+  nav.mainnav { display: none; }
+  .hamburger { display: block; }
+
+  #nav-toggle:checked + .mobile-menu {
+    display: block;
+  }
+}
+
+/* Timeline Section */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  padding: 100px 0;
+  white-space: nowrap;
+}
+
+.timeline-line {
+  position: relative;
+  height: 4px;
+  background-color: var(--line);
+  width: 2600px; /* Panjang garis waktu */
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.arrow {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid var(--line);
+}
+
+/* Timeline items */
+.timeline-item {
+  position: absolute;
+  text-align: center;
+  width: 130px;
+}
+
+.timeline-item img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: var(--card);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.timeline-item span {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Posisi zigzag */
+.up {
+  top: -180px; /* Naik di atas garis */
+}
+
+.down {
+  top: 30px; /* Di bawah garis */
+}
+
+/* Garis penghubung antara gambar dan timeline */
+.connector {
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background-color: var(--line);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.up .connector {
+  top: 140px; /* dari bawah gambar ke garis timeline */
+}
+
+.down .connector {
+  top: -40px; /* dari atas gambar ke garis timeline */
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="site-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Image/1. Universal/Umbrella_Corporation_logo.svg.png" alt="Umbrella Logo">
+      <div>
+        <div class="site-title">Umbrella Resource</div>
+        <div class="site-sub">A dedicated Resident Evil resource</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mainnav">
+      <a class="button" href="index.html">Home</a>
+
+      <!-- Mainline dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+              <a href="re1.html">Resident Evil (1993)</a>
+              <a href="re2.html">Resident Evil 2</a>
+              <a href="re3.html">Resident Evil 3</a>
+			  <a href="re1r.html">Resident Evil 1</a>
+			  <a href="re0.html">Resident Evil 0</a>
+              <a href="re4.html">Resident Evil 4</a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spin-Off dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+            <a href="RE-Survivor.html">Resident Evil Survivor</a>
+            <a href="RE-Code-Veronica.html">Resident Evil Code Veronica</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="Release Timeline.html">Release-Timeline</a>
+	  <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+      <a class="button" href="Gallery.html">Gallery</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </div>
+
+	
+  <!-- Mobile menu -->
+  <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
+  <div class="mobile-menu site-wrap">
+   <a href="index.html">Home</a>
+    <a href="Mainline.html">Mainline</a>
+    <a href="Spin-Offs.html">Spin-Offs</a>
+    <a href="Release Timeline.html">Release-Timeline</a>
+	<a href="In-Game Timeline.html">Game-Timeline</a>
+    <a href="Gallery.html">Gallery</a>
+  </div>
+</header>
+
+
+<main>
+  <div class="timeline-container">
+    <div class="timeline-line">
+
+      <!-- Game 1 -->
+      <div class="timeline-item up" style="left: 100px;">
+        <img src="Image/Mainline/RE0.jpg" alt="RE1">
+        <div class="connector"></div>
+        <span>1998</span>
+      </div>
+
+      <!-- Game 2 -->
+      <div class="timeline-item down" style="left: 300px;">
+        <div class="connector"></div>
+        <img src="Image/Mainline/RE1R.jpg" alt="RE2">
+        <span>1998</span>
+      </div>
+
+      <!-- Game 3 -->
+      <div class="timeline-item up" style="left: 500px;">
+        <img src="Image/Spin-offs/Re_outbreak_a.jpg" alt="RE3">
+        <div class="connector"></div>
+        <span>1998</span>
+      </div>
+
+      <!-- Game 4 -->
+      <div class="timeline-item down" style="left: 700px;">
+        <div class="connector"></div>
+        <img src="Image/Spin-offs/Resident_Evil_Outbreak_File_2.jpg" alt="RE0">
+        <span>1998</span>
+      </div>
+
+      <!-- Game 5 -->
+      <div class="timeline-item up" style="left: 900px;">
+        <img src="Image/Mainline/RE3.jpg" alt="RE4">
+        <div class="connector"></div>
+        <span>1998</span>
+      </div>
+
+      <!-- Game 6 -->
+      <div class="timeline-item down" style="left: 1100px;">
+        <div class="connector"></div>
+        <img src="Image/Mainline/RE2.png" alt="RE5">
+        <span>1998</span>
+      </div>
+
+      <!-- Game 7 -->
+      <div class="timeline-item up" style="left: 1300px;">
+        <img src="Image/Spin-offs/resurvivor.jpg" alt="RE6">
+        <div class="connector"></div>
+        <span>1998</span>
+      </div>
+
+      <!-- Game 8 -->
+      <div class="timeline-item down" style="left: 1500px;">
+        <div class="connector"></div>
+        <img src="Image/Spin-offs/RECV.jpg" alt="RE7">
+        <span>1998</span>
+      </div>
+
+      <!-- Game 9 -->
+      <div class="timeline-item up" style="left: 1700px;">
+        <img src="Image/Spin-offs/REDC.jpg" alt="RE2 Remake">
+        <div class="connector"></div>
+        <span>2002</span>
+      </div>
+
+      <!-- Game 10 -->
+      <div class="timeline-item down" style="left: 1900px;">
+        <div class="connector"></div>
+        <img src="Image/Spin-offs/Residentevildeadaim.jpg" alt="RE3 Remake">
+        <span>2002</span>
+      </div>
+
+      <!-- Game 11 -->
+      <div class="timeline-item up" style="left: 2100px;">
+        <img src="Image/Spin-offs/Resident_Evil,_The_Umbrella_Chronicles_(2007_video_game).jpg" alt="RE Village">
+        <div class="connector"></div>
+        <span>2003</span>
+      </div>
+
+      <!-- Game 12 -->
+      <div class="timeline-item down" style="left: 2300px;">
+        <div class="connector"></div>
+        <img src="Image/Spin-offs/Resident_evil_rev._2012_Capcom.png" alt="RE4 Remake">
+        <span>2004</span>
+      </div>
+		
+	  <div class="timeline-item up" style="left: 2500px;">
+        <img src="Image/Mainline/RE5.jpg" alt="RE Village">
+        <div class="connector"></div>
+        <span>2006</span>
+      </div>
+
+	  <div class="timeline-item down" style="left: 2700px;">
+        <div class="connector"></div>
+        <img src="Image/Spin-offs/Resident_Evil_Revelations_2_Cover_Image.webp" alt="RE4 Remake">
+        <span>2011</span>
+      </div>
+	
+		<div class="timeline-item up" style="left: 2900px;">
+        <img src="Image/Mainline/RE6.png" alt="RE Village">
+        <div class="connector"></div>
+        <span>2012</span>
+      </div>
+		
+	  <div class="timeline-item down" style="left: 3100px;">
+        <div class="connector"></div>
+        <img src="Image/Mainline/RE7.jpg" alt="RE4 Remake">
+        <span>2014</span>
+      </div>
+		
+		<div class="timeline-item up" style="left: 3300px;">
+        <img src="Image/Mainline/RE8.png" alt="RE Village">
+        <div class="connector"></div>
+        <span>2021</span>
+      </div
+		
+      <div class="arrow"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const body = document.body;
+if (localStorage.getItem('theme') === 'dark') {
+  body.setAttribute('data-theme', 'dark');
+  toggle.textContent = '☀️';
+}
+toggle.addEventListener('click', () => {
+  if (body.getAttribute('data-theme') === 'dark') {
+    body.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+    toggle.textContent = '🌙';
+  } else {
+    body.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    toggle.textContent = '☀️';
+  }
+});
+</script>
+
+</body>
+</html>
+

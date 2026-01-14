@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RE2 Weapon - Umbrella Resource</title>
+<style>
+ /* Light mode (default) */
+ :root {
+    --bg: #fdf5ce;
+    --header-bg: #faf3c0;
+    --text: #111;
+    --text-muted: #555;
+    --accent: #d6c68a;
+    --accent-hover: #bfae70;
+  }
+
+  [data-theme="dark"] {
+    --bg: #242951;
+    --header-bg: #0C1256;
+    --text: #FFFFFF;
+    --text-muted: #555;
+    --accent: #283174;
+    --accent-hover: #4E5374;
+  }
+
+  /* 🌍 Global */
+  body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .site-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 🔝 Header & Navbar */
+  header.topbar {
+    background: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .topbar .site-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .site-title { font-weight: 700; font-size: 18px; }
+  .site-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  nav.mainnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  nav a.button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background-color .25s, transform .2s;
+  }
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* 🌙 Tombol Dark Mode */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  /* ⬇️ Dropdown */
+  .dropdown { position: relative; }
+  .drop-toggle { cursor: pointer; }
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: var(--header-bg);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: none;
+    z-index: 50;
+  }
+  .dropdown:hover .dropdown-panel { display: block; }
+  .dropdown-panel .col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown-panel a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .dropdown-panel a:hover { background: var(--accent); }
+
+  /* 📱 Responsive Navbar */
+  .mobile-toggle { display: none; }
+  .hamburger {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 20px;
+  }
+
+  @media (max-width: 880px) {
+    nav.mainnav { display: none; }
+    .hamburger { display: flex; }
+    #nav-toggle:checked ~ .mobile-menu { display: block; }
+
+    .mobile-menu {
+      display: none;
+      background: var(--header-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px auto;
+      max-width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 6px;
+    }
+    .mobile-menu a + a { margin-top: 6px; }
+  }
+
+  /* ====== MAIN CONTENT ====== */
+  main {
+    max-width:1200px;
+    margin:40px auto;
+    background-color:var(--accent);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    text-align:center;
+    margin-bottom:30px;
+  }
+
+  /* === TABLE === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--header-bg);
+    color: var(--text);
+  }
+
+  th, td {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 16px;
+    text-align: center;
+    height: 60px;
+    transition: background 0.3s;
+  }
+
+  td:hover {
+    background: var(--accent-hover);
+  }
+
+  th {
+    background: var(--accent);
+    font-weight: 700;
+  }
+
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="site-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Image/1. Universal/Umbrella_Corporation_logo.svg.png" alt="Umbrella Logo">
+      <div>
+        <div class="site-title">Umbrella Resource</div>
+        <div class="site-sub">A dedicated Resident Evil resource</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mainnav">
+      <a class="button" href="index.html">Home</a>
+
+      <!-- Mainline dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+              <a href="#">Resident Evil (1993)</a>
+              <a href="#">Resident Evil 2</a>
+              <a href="#">Resident Evil 3</a>
+              <a href="#">Resident Evil 0</a>
+              <a href="#">Resident Evil 4</a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spin-Off dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+            <a href="#">Resident Evil Survivor</a>
+            <a href="#">Resident Evil Outbreak</a>
+            <a href="#">Resident Evil Revelations</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="Release Timeline.html">Release-Timeline</a>
+      <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+      <a class="button" href="Gallery.html">Gallery</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </div>
+
+  <!-- Mobile menu -->
+  <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
+  <div class="mobile-menu site-wrap">
+   <a href="index.html">Home</a>
+    <a href="Mainline.html">Mainline</a>
+    <a href="Spin-Offs.html">Spin-Offs</a>
+    <a href="Release Timeline.html">Release-Timeline</a>
+    <a href="In-Game Timeline.html">Game-Timeline</a>
+    <a href="Gallery.html">Gallery</a>
+  </div>
+</header>
+
+<main>
+  <h1>Weapons</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Weapon</th>
+        <th>Ammo</th>
+        <th>Damage</th>
+        <th>Slot</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="games-grid">
+    <a class="game-card" href="re1.html">
+      <img src="Image/Mainline/RE1.webp" alt="Resident Evil 1" width="100" height="100">
+      <p>Resident Evil</p>
+    </a></td>
+        <td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr>
+        <td></td>
+        <td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</main>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+  if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+    toggle.textContent = '☀️';
+  }
+  toggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '🌙';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  });
+</script>
+</body>
+</html>
+

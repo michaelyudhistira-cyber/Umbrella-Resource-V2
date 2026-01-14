@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>RE3 Key Item - Umbrella Resource</title>
+<style>
+ /* Light mode (default) */
+ :root {
+    --bg: #fdf5ce;
+    --header-bg: #faf3c0;
+    --text: #111;
+    --text-muted: #555;
+    --accent: #d6c68a;
+    --accent-hover: #bfae70;
+  }
+
+  [data-theme="dark"] {
+    --bg: #242951;
+    --header-bg: #0C1256;
+    --text: #FFFFFF;
+    --text-muted: #555;
+    --accent: #283174;
+    --accent-hover: #4E5374;
+  }
+
+  /* 🌍 Global */
+  body {
+    margin: 0;
+    font-family: Inter, Segoe UI, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .site-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 🔝 Header & Navbar */
+  header.topbar {
+    background: var(--header-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .topbar .site-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+  .site-title { font-weight: 700; font-size: 18px; }
+  .site-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  nav.mainnav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  nav a.button {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background-color .25s, transform .2s;
+  }
+  nav a.button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* 🌙 Tombol Dark Mode */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+  }
+
+  /* ⬇️ Dropdown */
+  .dropdown { position: relative; }
+  .drop-toggle { cursor: pointer; }
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: var(--header-bg);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: none;
+    z-index: 50;
+  }
+  .dropdown:hover .dropdown-panel { display: block; }
+  .dropdown-panel .col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown-panel a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .dropdown-panel a:hover { background: var(--accent); }
+
+  /* 📱 Responsive Navbar */
+  .mobile-toggle { display: none; }
+  .hamburger {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 20px;
+  }
+
+  @media (max-width: 880px) {
+    nav.mainnav { display: none; }
+    .hamburger { display: flex; }
+    #nav-toggle:checked ~ .mobile-menu { display: block; }
+
+    .mobile-menu {
+      display: none;
+      background: var(--header-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px auto;
+      max-width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 6px;
+    }
+    .mobile-menu a + a { margin-top: 6px; }
+  }
+
+  /* ====== MAIN CONTENT ====== */
+  main {
+    max-width:1200px;
+    margin:40px auto;
+    background-color:var(--accent);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    text-align:center;
+    margin-bottom:30px;
+  }
+
+  /* === TABLE === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--header-bg);
+    color: var(--text);
+  }
+
+  th, td {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 16px;
+    text-align: center;
+    height: 60px;
+    transition: background 0.3s;
+  }
+
+  td:hover {
+    background: var(--accent-hover);
+  }
+
+  th {
+    background: var(--accent);
+    font-weight: 700;
+  }
+
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="site-wrap">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Image/1. Universal/Umbrella_Corporation_logo.svg.png" alt="Umbrella Logo">
+      <div>
+        <div class="site-title">Umbrella Resource</div>
+        <div class="site-sub">A dedicated Resident Evil resource</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mainnav">
+      <a class="button" href="index.html">Home</a>
+
+      <!-- Mainline dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+              <a href="#">Resident Evil (1993)</a>
+              <a href="#">Resident Evil 2</a>
+              <a href="#">Resident Evil 3</a>
+              <a href="#">Resident Evil 0</a>
+              <a href="#">Resident Evil 4</a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spin-Off dropdown -->
+      <div class="dropdown">
+        <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
+        <div class="dropdown-panel">
+           <div class="col">
+            <a href="#">Resident Evil Survivor</a>
+            <a href="#">Resident Evil Outbreak</a>
+            <a href="#">Resident Evil Revelations</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="button" href="Release Timeline.html">Release-Timeline</a>
+      <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+      <a class="button" href="Gallery.html">Gallery</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </div>
+
+  <!-- Mobile menu -->
+  <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
+  <div class="mobile-menu site-wrap">
+   <a href="index.html">Home</a>
+    <a href="Mainline.html">Mainline</a>
+    <a href="Spin-Offs.html">Spin-Offs</a>
+    <a href="Release Timeline.html">Release-Timeline</a>
+    <a href="In-Game Timeline.html">Game-Timeline</a>
+    <a href="Gallery.html">Gallery</a>
+  </div>
+</header>
+
+<main>
+  <h1>Key Item</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Mixing Set</td><td>A set of tools to mix and prepare medicines.</td><td>This is Rebecca's default equipment, used to mix chemicals such as the Stripping Agent and Sulfuric Acid.</td></tr>
+      <tr><td>Ink Ribbon</td><td>Using this on a typewriter will allow you to record your progress.</td><td>Used to save the game at Typewriters.</td></tr>
+      <tr><td>Dining Car Key</td><td>The tag reads “Dining Car.”</td><td>Unlocks the door to the Dining Car on the train.</td></tr>
+      <tr><td>Lighter (Empty)</td><td>An empty lighter that’s out of fuel.</td><td>Billy’s default item; combine with Lighter Fluid to make usable.</td></tr>
+      <tr><td>Conductor’s Key</td><td>The tag reads “Conductor’s Room.”</td><td>Unlocks the door to the Conductor’s Office.</td></tr>
+      <tr><td>Ice Pick</td><td>A finely tapered pick that looks sharp.</td><td>Used to unblock a door in the Service Room (Train 2F).</td></tr>
+      <tr><td>Briefcase</td><td>A locked case with two round holes.</td><td>Opens with Silver Ring and Gold Ring; contains the Key Item.</td></tr>
+      <tr><td>Panel Opener</td><td>Used to open access panels in floors.</td><td>Opens the hatch in the Dining Car to the Freight Car.</td></tr>
+      <tr><td>Gold Ring</td><td>A finely crafted gold ring.</td><td>Combine with Silver Ring to unlock the Briefcase.</td></tr>
+      <tr><td>Empty Bottle</td><td>Can be filled to make a weapon.</td><td>Combine with Gas Tank to create Molotov Cocktail.</td></tr>
+      <tr><td>Gas Tank</td><td>Filled with gasoline.</td><td>Combine with Empty Bottle to make Molotov Cocktail.</td></tr>
+      <tr><td>Jewelry Box</td><td>A small ornate box.</td><td>Contains the Silver Ring once examined.</td></tr>
+      <tr><td>Silver Ring</td><td>A finely crafted silver ring.</td><td>Combine with Gold Ring to open Briefcase.</td></tr>
+      <tr><td>Blue Keycard</td><td>Electronic door keycard.</td><td>Opens the electronic door to the Engine Car.</td></tr>
+      <tr><td>Hookshot</td><td>A grappling device used to reach high places.</td><td>Used in Passenger Car 2, Church Roof, Reference Room, and Machine Room.</td></tr>
+      <tr><td>Magnetic Card</td><td>Card key for the train’s brakes.</td><td>Used to manually operate train brakes.</td></tr>
+      <tr><td>Lighter Fluid</td><td>Container of lighter fuel.</td><td>Combine with Empty Lighter to refill it.</td></tr>
+      <tr><td>Lighter</td><td>A filled lighter.</td><td>Used to light candles and statues in Training Facility puzzles.</td></tr>
+      <tr><td>Crank Handle</td><td>A crank with a square-shaped end.</td><td>Used in the Main Library to operate the lift.</td></tr>
+      <tr><td>Iron Needle</td><td>A needle that looks like a clock hand.</td><td>Used on the Clock Room’s clock to unlock two doors.</td></tr>
+      <tr><td>Fire Key</td><td>Key inscribed with a fire design.</td><td>Opens fire-etched doors (Kitchen, Assistant Director’s Office).</td></tr>
+      <tr><td>Microfilm A</td><td>A film reel for a projector.</td><td>Used with Microfilm B to produce a code image for the MO Disk.</td></tr>
+      <tr><td>Microfilm B</td><td>A second film reel.</td><td>Combine with Microfilm A in Projection Room to access MO Disk.</td></tr>
+      <tr><td>MO Disk</td><td>Labelled “Security System ver.1.02”.</td><td>Used in Lecture Room to unlock certain doors in Training Facility.</td></tr>
+      <tr><td>Book of Good</td><td>An elegantly bound book titled “GOOD”.</td><td>Examine to find the Angel Wings inside.</td></tr>
+      <tr><td>Angel Wings</td><td>White stone shaped like wings.</td><td>Combine with White Statue to form Statue of Good.</td></tr>
+      <tr><td>Statue of Evil</td><td>A statue in the shape of a demon.</td><td>Place on Scales of Justice with Statue of Good to open secret path.</td></tr>
+      <tr><td>Battery</td><td>A standard-type battery.</td><td>Powers the lift outside the Training Facility entrance.</td></tr>
+      <tr><td>Unity Tablet</td><td>A tablet depicting a knight.</td><td>Used with Discipline and Obedience Tablets to lower Observatory Tower.</td></tr>
+      <tr><td>Breeding Room Key</td><td>A key with a monstrous engraving.</td><td>Opens the Breeding Room in the Laboratory.</td></tr>
+      <tr><td>Sterilizing Agent</td><td>Chemical tank for sterilization.</td><td>Used to clear toxic gas in the Leech Laboratory.</td></tr>
+      <tr><td>Blue Leech Charm</td><td>A blue sculpture of a leech.</td><td>Used in Laboratory to open Marcus’s Study door.</td></tr>
+      <tr><td>Dial</td><td>A mechanical dial, like a safe’s.</td><td>Used on the white door (password 4863) in Elevator Passage.</td></tr>
+      <tr><td>Motherboard</td><td>A microchip board.</td><td>Attach in Cargo Control Room to activate gondola.</td></tr>
+      <tr><td>Hi-Power Battery</td><td>Battery filled with fluid.</td><td>Powers forklift in Maintenance Area to retrieve card key.</td></tr>
+      <tr><td>Closet Key</td><td>A key for the train closet.</td><td>Unlocks Cabin 101 closet; exclusive reward for GameCube version.</td></tr>
+    </tbody>
+  </table>
+</main>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+  if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+    toggle.textContent = '☀️';
+  }
+  toggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.textContent = '🌙';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.textContent = '☀️';
+    }
+  });
+</script>
+</body>
+</html>
+
