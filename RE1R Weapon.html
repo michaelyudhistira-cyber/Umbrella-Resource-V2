@@ -16,12 +16,12 @@
   }
 
   [data-theme="dark"] {
-    --bg: #0e0e0e;
-    --header-bg: #181818;
+    --bg: #323232;
+    --header-bg: #3E3E3E;
     --text: #f5f5f5;
-    --text-muted: #aaa;
-    --accent: #bfae70;
-    --accent-hover: #f0d98a;
+    --text-muted: #929292;
+    --accent: #6F6F6F;
+    --accent-hover: #9F9F9F;
   }
 
   /* 🌍 Global */
@@ -215,7 +215,7 @@
 </head>
 
 <body>
-<header class="topbar">
+	<header class="topbar">
   <div class="site-wrap">
     <!-- Logo -->
     <div class="logo">
@@ -235,11 +235,12 @@
         <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
         <div class="dropdown-panel">
            <div class="col">
-              <a href="#">Resident Evil (1993)</a>
-              <a href="#">Resident Evil 2</a>
-              <a href="#">Resident Evil 3</a>
-              <a href="#">Resident Evil 0</a>
-              <a href="#">Resident Evil 4</a>
+              <a href="re1.html">Resident Evil (1993)</a>
+              <a href="re2.html">Resident Evil 2</a>
+              <a href="re3.html">Resident Evil 3</a>
+			  <a href="re1r.html">Resident Evil 1</a>
+			  <a href="re0.html">Resident Evil 0</a>
+              <a href="re4.html">Resident Evil 4</a>
             </div>
         </div>
       </div>
@@ -249,15 +250,14 @@
         <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
         <div class="dropdown-panel">
            <div class="col">
-            <a href="#">Resident Evil Survivor</a>
-            <a href="#">Resident Evil Outbreak</a>
-            <a href="#">Resident Evil Revelations</a>
+            <a href="RE-Survivor.html">Resident Evil Survivor</a>
+            <a href="RE-Code-Veronica.html">Resident Evil Code Veronica</a>
           </div>
         </div>
       </div>
 
       <a class="button" href="Release Timeline.html">Release-Timeline</a>
-      <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+	  <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
       <a class="button" href="Gallery.html">Gallery</a>
       <button class="theme-toggle" id="themeToggle">🌙</button>
     </nav>
@@ -265,6 +265,7 @@
     <label for="nav-toggle" class="hamburger">&#9776;</label>
   </div>
 
+	
   <!-- Mobile menu -->
   <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
   <div class="mobile-menu site-wrap">
@@ -272,37 +273,335 @@
     <a href="Mainline.html">Mainline</a>
     <a href="Spin-Offs.html">Spin-Offs</a>
     <a href="Release Timeline.html">Release-Timeline</a>
-    <a href="In-Game Timeline.html">Game-Timeline</a>
+	<a href="In-Game Timeline.html">Game-Timeline</a>
     <a href="Gallery.html">Gallery</a>
   </div>
 </header>
-
 <main>
   <h1>Weapons</h1>
-  <table>
+ <table>
     <thead>
       <tr>
         <th>Weapon</th>
+        <th>Description</th>
         <th>Ammo</th>
-        <th>Damage</th>
-        <th>Slot</th>
-        <th>Location</th>
+        <th>Background</th>
+        <th>Reference</th>
+        <th>Airsoft Model</th>
       </tr>
     </thead>
     <tbody>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/survival-knife.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Combat Knife</p></a></div></td><td>This doesn't seem to be enough for this mission..</td><td>None</td>
+      <td>It's a basic survival knife</td>
+      <td>Bowie Knife</td>
+      <td>Bowie Knife blunt replica</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/survival-knife-chriss.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Baretta M92FS</p>
+			</a></div></td><td>Beretta M92FS. Automatic loaded with 9mm bullets.</td>
+			<td>Clip</td><td>Standard issue handgun for S.T.A.R.S members. This weapon gets its ammunition from the Clips you find.</td><td>Beretta 92FS</td>
+			<td>Tokyo Marui M92F</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/handgun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Beretta M92FS Custom</p>
+			</a></div></td><td>Beretta M92FS Automatic. Custom edition.</td>
+			<td>Clip</td><td>Custom handgun for S.T.A.R.S members. This weapon gets its ammunition from the Clips you find.</td>
+			<td>Beretta 92FS</td>
+			<td>WE Tech M9 Silver</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/samurai-edge.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Remington M870</p>
+			</a></div></td><td>Remington M870. A pump-action shotgun.</td>
+			<td>Shells</td><td>A classic pump-action shotgun. It uses Shells.</td>
+			<td>Remington M870</td>
+			<td>JG Golden Eagle M870</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/shotgun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Bazooka</p>
+			</a></div></td><td>E.Rounds / A.Rounds / F.Rounds Loaded.</td><td>Explosive Rounds Acid Rounds, and Flame Rounds.</td><td>A heavy bazooka once belonging to Forest Speyer.<br>
+			  <br>
+			  A powerful weapon exclusive to Jill. Can be loaded with three different sorts of rounds; Explosive Rounds Acid Rounds, and Flame Rounds.</td>
+			<td>Arwen 37</td>
+			<td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/assault-shotgun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Colt Python</p>
+			</a></div></td><td>Magnum Rounds loaded.</td>
+			<td>Magnum Rounds</td>
+			<td>One of the most powerful handguns in the world, the cylinder has the space for six rounds. It uses Magnum Rounds.</td>
+			<td>Colt Python</td>
+			<td>Colt Python 4" 357 CO2 Revolver Airsoft Pistol Licensed by Cybergun</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/grenade-launcher.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Flamethrower</p>
+			</a></div></td><td>Can throw flame for 9 sec. with max. fuel.</td>
+			<td>None</td><td>A flamethrower with a limited fuel supply.
+			  <br><br>
+
+
+		  This weapon is only exclusive to Chris, and has an additional purpose other than killing enemies. Placing the gun on panels with two hooks in the Underground unlocks the corresponding door, allowing you to proceed. However, this means you can't leave the Underground with it in your possession.</td><td>Flamethrower from Movie Alien</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/magnum-revolver.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Rocket Launcher</p>
+			</a></div></td><td>One shot can destroy any target.</td>
+			<td>None</td>
+			<td>A large shoulder-mounted four-chambered rocket launcher. There is no additional ammunition available for it in the game, so four shots is all you get.
+
+However, this weapon is also available with infinite ammunition if you complete the game under 3 hours.</td><td>M202 FLASH</td><td>None</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/barrys-44-magnum.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Ingram</p>
+			</a></div></td><td>A sub machine gun loaded with 9mm bullets.</td><td>None</td><td>A weapon exclusive to Jill in the PC version of the game.
+
+It is a moderately powerful weapon and comes loaded with infinite ammunition. It is acquired by completing the game in under three hours, and will appear in your inventory when starting a new game.
+
+Please note: There is some debate over the criteria needed to acquire this weapon, and there are reports that this weapon is only available to certain editions of the PC version.</td><td>Ingram Mac-10</td><td>Tokyo Marui MAC 10 AEG Airsoft SMG</td></tr>
+      <tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/rocket-launcher.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Minimi</p>
+			</a></div></td><td>A full-automatic light-weight machine gun.</td>
+		<td>None</td><td>A weapon exclusive to Chris in the PC version of the game.
+
+It is quite a powerful weapon and comes loaded with infinite ammunition. It is acquired by completing the game in under three hours, and will appear in your inventory when starting a new game.
+
+Please note: There is some debate over the criteria needed to acquire this weapon, and there are reports that this weapon is only available to certain editions of the PC version.</td><td>FN Minimi</td>
+		<td>A&K M249 MKII AEG Airsoft LMG</td></tr>
+		<tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/rocket-launcher-single-barrel.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Minimi</p>
+			</a></div></td><td>A full-automatic light-weight machine gun.</td>
+		<td>None</td><td>A weapon exclusive to Chris in the PC version of the game.
+
+It is quite a powerful weapon and comes loaded with infinite ammunition. It is acquired by completing the game in under three hours, and will appear in your inventory when starting a new game.
+
+Please note: There is some debate over the criteria needed to acquire this weapon, and there are reports that this weapon is only available to certain editions of the PC version.</td><td>FN Minimi</td>
+		<td>A&K M249 MKII AEG Airsoft LMG</td></tr>
+		<tr><td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/flamethrower.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Minimi</p>
+			</a></div></td><td>A full-automatic light-weight machine gun.</td>
+		<td>None</td><td>A weapon exclusive to Chris in the PC version of the game.
+
+It is quite a powerful weapon and comes loaded with infinite ammunition. It is acquired by completing the game in under three hours, and will appear in your inventory when starting a new game.
+
+Please note: There is some debate over the criteria needed to acquire this weapon, and there are reports that this weapon is only available to certain editions of the PC version.</td><td>FN Minimi</td>
+		<td>A&K M249 MKII AEG Airsoft LMG</td></tr>
+    </tbody>
+	 
+  </table>
+	
+	 <h1>Self Defence</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Special Item</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+		
       <tr>
         <td><div class="games-grid">
-    <a class="game-card" href="re1.html">
-      <img src="Image/Mainline/RE1.webp" alt="Resident Evil 1" width="100" height="100">
-      <p>Resident Evil</p>
-    </a></td>
-        <td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <a class="game-card">
+      <img src="Image/RE1R/dagger.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun-Parts</p>
+			</a></div></td>
+        <td>A set of various parts consisting of a scope and a scope mount. Equipping these on a handgun will greatly increase the gun's firing precision.</td>
+		  
+		  <td>
+            <p>Training Room - Facility Basement B3</p>
+	    <a class="game-card" >        </a></td>
+		  <td>Parts for upgrading both Rebecca's and Billy's handgun.</td>
+	  </tr>
+		<tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/self-defense-gun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun-Parts</p>
+			</a></div></td>
+        <td>A set of various parts consisting of a scope and a scope mount. Equipping these on a handgun will greatly increase the gun's firing precision.</td>
+		  
+		  <td>
+            <p>Training Room - Facility Basement B3</p>
+	    <a class="game-card" >        </a></td>
+		  <td>Parts for upgrading both Rebecca's and Billy's handgun.</td>
+	  </tr>
+	<tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/stun-gun.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun-Parts</p>
+			</a></div></td>
+        <td>A set of various parts consisting of a scope and a scope mount. Equipping these on a handgun will greatly increase the gun's firing precision.</td>
+		  
+		  <td>
+            <p>Training Room - Facility Basement B3</p>
+	    <a class="game-card" >        </a></td>
+		  <td>Parts for upgrading both Rebecca's and Billy's handgun.</td>
+	  </tr>
+		
+	<tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/flash-grenade.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun-Parts</p>
+			</a></div></td>
+        <td>A set of various parts consisting of a scope and a scope mount. Equipping these on a handgun will greatly increase the gun's firing precision.</td>
+		  
+		  <td>
+            <p>Training Room - Facility Basement B3</p>
+	    <a class="game-card" >        </a></td>
+		  <td>Parts for upgrading both Rebecca's and Billy's handgun.</td>
+	  </tr>
+    </tbody>
+  </table>
+	
+	 <h1>Ammunition</h1>
+  <table>
+    <thead>
       <tr>
-        <td></td>
-        <td></td><td></td><td></td><td></td></tr>
+        <th width="11%">Ammo</th>
+        <th width="13%">Description</th>
+        <th width="59%">Location</th>
+        <th width="17%">Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+		
+      <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/handgun-magazine.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Handgun Ammo</p>
+			</a></div></td>
+        <td><p>Holds 9x19 parabellum rounds for use with handguns.</p>
+        <p>Total of ammo in each difficulty are different</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These bullets can be used with the following weapons:<br>
+		    <ul>
+		      <li><a>Rebecca's Handgun</a><br>
+	          </li>
+		      <li><a>Billy's Handgun</a><br>
+	          </li>
+		      <li><a>Rebecca's Custom Handgun</a><br>
+	          </li>
+		      <li><a>Billy's Custom Handgun</a></li>
+          </ul></td>
+	  
+	  </tr>
+	 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/shotgun-shells.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Shotgun Ammo</p>
+			</a></div></td>
+        <td><p>12 gauge shotgun shells.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>An extra box of shells for use with the following weapons:<br>
+		    <ul>
+		      <li><a>Hunting Gun</a><br>
+	          </li>
+		      <li><a>Shotgun</a></li>
+          </ul></td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/grenade-shells.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with conventional explosives.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the <a><strong>Grenade Launcher</strong></a><strong>.</strong> They are powerful, but the damage isn't as concentrated as the other types of rounds. They are useful against Zombies and Plague Crawlers.</td>
+	  
+	  </tr>
+	 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/acid-shells.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Acid Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with highly-concentrated sulfuric acid.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These shells, used with the <a>Grenade Launcher</a>, are most effective against the deadlier enemies of the game.</td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/incendiary-shells.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Napalm Grenades</p>
+			</a></div></td>
+        <td><p>These grenades are filled with a highly-flammable liquid.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the <a><strong>Grenade Launcher</strong></a>. They are effective against many enemies of the game, but should be reserved for the enemies sensitive to fire.</td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/magnum-rounds.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Magnum Ammo</p>
+			</a></div></td>
+        <td><p>These Magnum rounds boast several times the stopping power of ordinary handgun bullets.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These rounds are used with the following weapons:<br>
+		    <ul>
+		      <li><a>Magnum</a><br>
+	          </li>
+		      <li><a>Magnum Revolver</a></li>
+           </ul></td>
+	  
+	  </tr>
+		 <tr>
+        <td><div class="games-grid">
+    <a class="game-card">
+      <img src="Image/RE1R/battery-pack.png" alt="Resident Evil 1" width="100" height="79">
+      <p>Machinegun Ammo</p>
+			</a></div></td>
+        <td><p>A magazine containing sub-machinegun ammunition.</p></td>
+		  
+		  <td>
+            <h4>Rebecca's Inventory, <br>
+            Billy's Inventory, Cabin 202 - Train 1F, Officer's Car - Train 1F, Restaurant Car - Train 2F, Service Room - Train 2F, Cabin 101 - Train 2F, Engine Cab - Train 1F,Dining Room - Training Facility 1F, Main Hall - Training Facility 1F, Projection Room - Training Facility 1F, Assistant Director's Office - Training Facility 2F, Marcus' Office - Training Facility 2F, Clock Room - Training Facility 3F, Observatory Tower - Training Facility 3F, Statue Room - Facility Basement B2, Monitor Room - Facility Basement B1, Training Room - Facility Basement B3, Old Laboratory - Training Facility 2F, Morgue - Laboratory B1, Marcus's Study - Laboratory B2, Turntable Control Room - Factory 1F, Maintenance Shaft - Factory B1, Control Room - Treatment Plant B5, Generator Room - Treatment Plant B6, Lodgings - Treatment Plant B6, Engine Room - Treatment Plant B9, Storage - Treatment Plant B9</h4></td>
+		  <td>These clips will only appear in the main game if you have played the Leech Hunter mini-game and achieved at least an E Rank. However, they're only usable once you have acquired the <a><strong>Sub-Machinegun</strong></a> which is unlocked after completing the main game in under 5 hours. Once you have this weapon, these clips can be combined with it to restore its ammunition counter.</td>
+	  
+	  </tr>
     </tbody>
   </table>
 </main>

@@ -16,12 +16,12 @@
   }
 
   [data-theme="dark"] {
-    --bg: #0e0e0e;
-    --header-bg: #181818;
+    --bg: #323232;
+    --header-bg: #3E3E3E;
     --text: #f5f5f5;
-    --text-muted: #aaa;
-    --accent: #bfae70;
-    --accent-hover: #f0d98a;
+    --text-muted: #929292;
+    --accent: #6F6F6F;
+    --accent-hover: #9F9F9F;
   }
 
   /* 🌍 Global */
@@ -235,12 +235,13 @@
         <a class="button drop-toggle" href="Mainline.html">Mainline ▾</a>
         <div class="dropdown-panel">
            <div class="col">
-              <a href="#">Resident Evil (1993)</a>
-              <a href="#">Resident Evil 2</a>
-              <a href="#">Resident Evil 3</a>
-              <a href="#">Resident Evil 0</a>
-              <a href="#">Resident Evil 4</a>
-            </div>
+              <a href="re1.html">Resident Evil (1993)</a>
+              <a href="re2.html">Resident Evil 2</a>
+              <a href="re3.html">Resident Evil 3</a>
+			  <a href="re1r.html">Resident Evil 1</a>
+			  <a href="re0.html">Resident Evil 0</a>
+              <a href="re4.html">Resident Evil 4</a>
+          </div>
         </div>
       </div>
 
@@ -249,15 +250,14 @@
         <a class="button drop-toggle" href="Spin-Offs.html">Spin-Off ▾</a>
         <div class="dropdown-panel">
            <div class="col">
-            <a href="#">Resident Evil Survivor</a>
-            <a href="#">Resident Evil Outbreak</a>
-            <a href="#">Resident Evil Revelations</a>
+            <a href="RE-Survivor.html">Resident Evil Survivor</a>
+            <a href="RE-Code-Veronica.html">Resident Evil Code Veronica</a>
           </div>
         </div>
       </div>
 
       <a class="button" href="Release Timeline.html">Release-Timeline</a>
-      <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
+	  <a class="button" href="In-Game Timeline.html">Game-Timeline</a>
       <a class="button" href="Gallery.html">Gallery</a>
       <button class="theme-toggle" id="themeToggle">🌙</button>
     </nav>
@@ -265,6 +265,7 @@
     <label for="nav-toggle" class="hamburger">&#9776;</label>
   </div>
 
+	
   <!-- Mobile menu -->
   <input id="nav-toggle" class="mobile-toggle" type="checkbox" hidden>
   <div class="mobile-menu site-wrap">
@@ -272,39 +273,41 @@
     <a href="Mainline.html">Mainline</a>
     <a href="Spin-Offs.html">Spin-Offs</a>
     <a href="Release Timeline.html">Release-Timeline</a>
-    <a href="In-Game Timeline.html">Game-Timeline</a>
+	<a href="In-Game Timeline.html">Game-Timeline</a>
     <a href="Gallery.html">Gallery</a>
   </div>
 </header>
-
-<main>
-  <h1>Weapons</h1>
+	<main>
+  <h1>Recovery Item</h1>
   <table>
     <thead>
       <tr>
-        <th>Weapon</th>
-        <th>Ammo</th>
-        <th>Damage</th>
-        <th>Slot</th>
-        <th>Location</th>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Effects</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><div class="games-grid">
-    <a class="game-card" href="re1.html">
-      <img src="Image/Mainline/RE1.webp" alt="Resident Evil 1" width="100" height="100">
-      <p>Resident Evil</p>
-    </a></td>
-        <td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <td>Green Herb</td><td>An herb native to this area. It can be used to recover health.</td><td>The most useful of the three herbs you can find. The Green Herb by itself will restore a small amount of health, but can be enhanced by combining it with another Green Herb to create the Herbal Mix (G+G) which will double its potency. It can also be combined with the Blue Herb to create the Herbal Mix (G+B) or combined with the Red Herb to create Herbal Mix (G+R).
+
+</td></tr>
+      <tr>
+        <td><p dir="ltr">Red Herb<br>
+        </p></td><td>An herb native to this area. It can be combined with other herbs to increase their potency.</td><td>A herb that has no use on its own, but enhances the effect of the Green Herb when combined, creating the Herbal Mix (G+R).</td></tr>
+      <tr><td>Blue Herb</td><td>An herb native to this area. It can be used to cure poison.</td><td>This herb can be used to neutralize the effect of any poison, making it very useful after encountering venomous enemies such as Giant Spiders. It can be used on its own, or combined with a Green Herb to increase its healing effect.</td></tr>
+      <tr><td>First-Aid Spray</td><td>Used to fully restore health.</td><td>A powerful medical spray that can clean and heal wounds quickly and effectively. One of these will completely restore your health.
+
+Although not many of these throughout the game, they're good to stock up on for boss fights. Although they don't remove the poison status, you will still need a Blue Herb to cure this</td></tr>
+      <tr><td>Herbal Mix (G+G)</td><td>A compound created by combining 2 green herbs.</td><td>This is a combination of two Green Herbs.
+
+This has double the potency of a single Green Herb. It can be combined with another Green Herb to create the Herbal Mix (G+G+G) to increase its healing potency further, or it can be combined with a Blue Herb to create the Herbal Mix (G+G+B).</td></tr>
+      <tr><td>Herbal Mix (G+R)</td><td>A compound created by combining a green herb with a red herb.</td><td>This is a combination of one Green Herb and one Red Herb.
+
+Since Red Herbs enhance the effect of other herbs, this mixture can completely restore your health to 100%, however it will not sure the poison status. Combine this with a Blue Herb to create the Herbal Mix (G+R+B)</td></tr>
     </tbody>
   </table>
 </main>
-
 <script>
   const toggle = document.getElementById('themeToggle');
   const body = document.body;
